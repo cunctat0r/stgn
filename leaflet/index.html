@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; Charset=UTF-8">
+
+<link rel="stylesheet" href="./dist/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="./dist/leaflet.ie.css" />
+<![endif]-->
+
+<script src="./dist/leaflet.js"></script>
+</head>
+<body>
+
+
+<div id="map" style="height: 70%"></div>
+<script>
+
+var map = new L.Map('map');
+
+var map_layer = new L.TileLayer('http://192.168.1.175/osm/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+});
+
+var saratov = new L.LatLng(51.549, 46); // geographical point (longitude and latitude)
+map.setView(saratov, 13).addLayer(map_layer);
+
+var tower = [];
+
+	
+for (var i = 0; i < 40; i++) {
+	tower[i] = {
+		'lat': 51.549 + 0.01 * i * Math.random(),
+		'lon': 46.000123 - 0.0001 * i * Math.random(),
+		'num_line': 'Д-228',
+		'num_tower': 125 + i,
+		'F0': (12.5 + Math.random()).toFixed(2),
+		'F1': (13.5 + Math.random()).toFixed(2),
+		'F2': (14.5 + Math.random()).toFixed(2),
+		'F3': (1.5 + Math.random()).toFixed(2),
+		'F4': (1.2 + Math.random()).toFixed(2)
+	};
+
+}
+
+
+function add_tower (tower) {
+
+	var markerLocation = new L.LatLng(tower.lat, tower.lon);
+
+	var marker = new L.Marker(markerLocation);
+	map.addLayer(marker);
+
+//	var popup_text = "";
+//	popup_text = popup_text.concat("<b>Линия ", tower.num_line, "</b> Опора ", tower.num_tower);
+var popup_text = "<?php echo 'Current PHP version: '; ?>";
+//	popup_text = popup_text.concat ("<table>");
+//	popup_text = popup_text.concat("<tr><td>Фаза А:</td><td> ", tower.F0, " </td><td>кг.</td></tr>");
+//	popup_text = popup_text.concat("<tr><td>Фаза B:</td><td> ", tower.F1, " </td><td>кг.</td></tr>");
+//	popup_text = popup_text.concat("<tr><td>Фаза C:</td><td> ", tower.F2, " </td><td>кг.</td></tr>");
+//	popup_text = popup_text.concat("<tr><td>Трос 1:</td><td> ", tower.F3, " </td><td>кг.</td></tr>");
+//	popup_text = popup_text.concat("<tr><td>Трос 2:</td><td> ", tower.F4, " </td><td>кг.</td></tr>");
+//	popup_text = popup_text.concat("</table>");
+	marker.bindPopup(popup_text);
+
+}
+
+
+
+for (var i = 0; i < 40; i++) {
+	add_tower(tower[i]);
+}
+
+</script>
+
+<script>
+           // ЭТО ТО ЧТО МЫ ОБРАБАТЫВАЕМ Т.Е РЕЗУЛЬТАТ ОТВЕТА СЕРВЕРА СМОТРИМ Файл Result.PHP
+	function showContent(link) {
+		var cont = document.getElementById('contentBody');
+		var loading = document.getElementById('loading');
+		//cont.innerHTML = loading.innerHTML;
+		var http = createRequestObject();				// создаем ajax-объект
+		if( http ) {
+			http.open('get', link);					// инициируем загрузку страницы
+			http.onreadystatechange = function () {			// назначаем асинхронный обработчик события
+			if(http.readyState == 4) {
+                                    cont.innerHTML = http.responseText;	// присваиваем содержимое
+				}
+			}
+			http.send(null);
+		} else {
+			document.location = link;	// если ajax-объект не удается создать, просто перенаправляем на адрес
+		}
+	}
+
+	// создание ajax объекта
+	function createRequestObject() {
+		try { return new XMLHttpRequest() }
+		catch(e) {
+			try { return new ActiveXObject('Msxml2.XMLHTTP') }
+			catch(e) {
+				try { return new ActiveXObject('Microsoft.XMLHTTP') }
+				catch(e) { return null; }
+			}
+		}
+	}
+</script>
+
+ 
+</body>
+</html>
