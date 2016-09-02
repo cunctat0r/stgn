@@ -10,11 +10,11 @@ $host="127.0.0.1";
 $user="frost";
 $pass="frost";
 $dbname="monitoringdata";
-$db = mysql_connect($host,$user,$pass);
+$db = mysqli_connect($host,$user,$pass);
 
 
-if (!mysql_select_db($dbname)) {
-//    echo "Unable to select mydbname: " . mysql_error();
+if (!mysqli_select_db($db, $dbname)) {
+//    echo "Unable to select mydbname: ";
     exit;
 }
 
@@ -22,13 +22,13 @@ if (!mysql_select_db($dbname)) {
 $sql = "SELECT * FROM `monitoringtable` WHERE dateOfMeasurement BETWEEN '" . $correct_date . " 00:00:00' AND '" . $correct_date . " 23:59:59' ORDER BY `monitoringtable`.`index` ASC";
 //echo $sql;
 
-$result=mysql_query($sql);
+$result=mysqli_query($db, $sql);
 if (!$result) {
-    echo "Could not successfully run query from DB: " . mysql_error();
+    echo "Could not successfully run query from DB: " ;
     exit;
 }
 
-if (mysql_num_rows($result) == 0) {
+if (mysqli_num_rows($result) == 0) {
     echo "No rows found, nothing to print so am exiting";
     exit;
 }
@@ -47,7 +47,7 @@ $T3 = array();
 $T4 = array();
 $humid = array();
 
-while ($row = mysql_fetch_assoc($result))
+while ($row = mysqli_fetch_assoc($result))
 {
 	$date[] = strtotime($row['dateOfMeasurement']) * 1000;
 	$phoneNumber[] = $row['phoneNumber'];
@@ -83,6 +83,6 @@ $returned["humid"] = $humid;
 	
 echo json_encode($returned);
 
-mysql_free_result($result);
-mysql_close($db);
+mysqli_free_result($result);
+mysqli_close($db);
 ?>

@@ -1,40 +1,40 @@
 <?php
-$db = mysql_connect("localhost", "root", "LazyDog");
+$db = mysqli_connect("localhost", "root", "LazyDog");
 // This establishes a link to MySQL
-if (!mysql_select_db("monitoringdata")) {
-	echo "Unable to select db: " . mysql_error();
+if (!mysqli_select_db($db, "monitoringdata")) {
+	echo "Unable to select db: ";
 	exit;
 }
 
 $query = "SET NAMES 'utf8'";
-$result=mysql_query($query);
+$result=mysqli_query($db, $query);
 if (!$result) {
-    echo "Could not set names: " . mysql_error();
+    echo "Could not set names: ";
     exit;
 }
 
 $query = "SET character_set_client='utf8'";
-$result=mysql_query($query);
+$result=mysqli_query($db, $query);
 if (!$result) {
-    echo "Could not set characterset client: " . mysql_error();
+    echo "Could not set characterset client: ";
     exit;
 }
 
 $query = "SET character_set_connection='utf8'";
-$result=mysql_query($query);
+$result=mysqli_query($db, $query);
 if (!$result) {
-    echo "Could not set characterset connection: " . mysql_error();
+    echo "Could not set characterset connection: ";
     exit;
 }
 
 $sql = "SELECT * FROM `monitoringdata`.`post_parameters` WHERE baseNet='Ростов-на-Дону'";
-$result = mysql_query($sql);
+$result = mysqli_query($db, $sql);
 if (!$result) {
-	echo "Error in query " . mysql_error();
+	echo "Error in query ";
 	exit;
 }
 
-if (mysql_num_rows($result) == 0) {
+if (mysqli_num_rows($result) == 0) {
 	echo "No rows found";
 	exit;
 }
@@ -52,7 +52,7 @@ $tros1max = array();
 $tros2max = array();
 
 
-while ($row = mysql_fetch_assoc($result)) {
+while ($row = mysqli_fetch_assoc($result)) {
 	$phoneNumber[] = $row['phoneNumber'];
 	$numTower[] = $row['numTower'];
 	$numLine[] = $row['numLine'];
@@ -85,7 +85,7 @@ $returned['tros2max'] = $tros2max;
 $returned['index'] = $index;
 
 echo json_encode($returned);
-mysql_free_result($result);
-mysql_close($db);
+mysqli_free_result($result);
+mysqli_close($db);
 
 ?>
