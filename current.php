@@ -1,8 +1,8 @@
 <?php
 
 $host="127.0.0.1";
-$user="root";
-$pass="LazyDog";
+$user="frost";
+$pass="frost";
 $dbname="monitoringdata";
 $dbtable = "post_parameters";
 $db = mysql_connect($host,$user,$pass);

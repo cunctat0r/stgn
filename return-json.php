@@ -16,8 +16,8 @@ function correct_value($value) {
 }
 
 $host="127.0.0.1";
-$user="root";
-$pass="LazyDog";
+$user="frost";
+$pass="frost";
 $dbname="monitoringdata";
 $db = mysql_connect($host,$user,$pass);
 
