@@ -24,12 +24,12 @@ $sql = "SELECT * FROM `monitoringtable` WHERE dateOfMeasurement BETWEEN '" . $co
 
 $result=mysqli_query($db, $sql);
 if (!$result) {
-    echo "Could not successfully run query from DB: " ;
+    //echo "Could not successfully run query from DB: " ;
     exit;
 }
 
 if (mysqli_num_rows($result) == 0) {
-    echo "No rows found, nothing to print so am exiting";
+    //echo "No rows found, nothing to print so am exiting";
     exit;
 }
 

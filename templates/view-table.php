@@ -163,7 +163,8 @@
 		
 		$(document).ready(function() {				
 			get_today_data();
-			get_new_data();									
+			get_new_data();
+                        
 		});
 			
 		</script>

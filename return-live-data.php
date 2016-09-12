@@ -22,11 +22,11 @@ $sql = "SELECT * FROM `monitoringtable` ORDER BY `monitoringtable`.`index` DESC 
 
 $result=mysqli_query($db, $sql);
 if (!$result) {
-//    echo "Could not successfully run query from DB: ";
+    //echo "Could not successfully run query from DB: ";
     exit;
 }
 
-if (mysqli_num_rows($db, $result) == 0) {
+if (mysqli_num_rows($result) == 0) {
     //echo "No rows found, nothing to print so am exiting";
     exit;
 }
