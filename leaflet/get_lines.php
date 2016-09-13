@@ -39,13 +39,16 @@ if (mysqli_num_rows($result) == 0) {
 	exit;
 }
 
+$rows = array();
 while ($row = mysqli_fetch_assoc($result)) {
 	$rows[] = $row;
 }
 
-echo json_encode($rows);
-
 mysqli_free_result($result);
 mysqli_close($db);
+
+echo json_encode($rows);
+
+
 
 ?>
