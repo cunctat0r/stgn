@@ -28,7 +28,9 @@ var map_layer = new L.TileLayer('../osm_tiles/{z}/{x}/{y}.png', {
 });
 
 var middleMap = new L.LatLng(53.00, 51.3); // geographical point (longitude and latitude)
-map.setView(middleMap, 9).addLayer(map_layer);
+//map.setView(middleMap, 9).addLayer(map_layer);
+map.setView(middleMap, 9);
+map_layer.addTo(map);
 
 
 // get all 6 points
