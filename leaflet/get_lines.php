@@ -27,7 +27,7 @@ if (!$result) {
     exit;
 }
 
-$sql = "SELECT * FROM power_lines";
+$sql = "SELECT line_number, linePoints FROM power_lines";
 $result = mysqli_query($db, $sql);
 if (!$result) {
 	echo "Error in query ";
