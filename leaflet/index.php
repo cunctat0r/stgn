@@ -28,17 +28,14 @@ var map_layer = new L.TileLayer('../osm_tiles/{z}/{x}/{y}.png', {
 });
 
 var middleMap = new L.LatLng(53.00, 51.3); // geographical point (longitude and latitude)
-map.setView(middleMap, 7).addLayer(map_layer);
+map.setView(middleMap, 9).addLayer(map_layer);
 
 
 // get all 6 points
 var points = [
-    [51.49346, -0.11518],
-    [51.49827, -0.06763],
-    [51.48331, -0.08154],
-    [51.52284, -0.09974],
-    [51.51932, -0.06695],
-    [51.50949, -0.1363]
+    [50.64, 53.23],
+    [51.29, 53.07],
+    [52.23, 52.79]
 ];
 
 // polyline
