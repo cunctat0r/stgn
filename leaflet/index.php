@@ -28,13 +28,8 @@ var map_layer = new L.TileLayer('../osm_tiles/{z}/{x}/{y}.png', {
 });
 
 var middleMap = new L.LatLng(53.01889, 51.41167); // geographical point (longitude and latitude)
-//map.setView(middleMap, 9).addLayer(map_layer);
 map.setView(middleMap, 10);
 map_layer.addTo(map);
-
-map.on('click', function(e) {
-    alert(e.latlng);
-});
 
 //Define an array of Latlng objects (points along the line)
 var polylinePoints = [
@@ -154,9 +149,7 @@ function get_tower_data(tower_index) {
 		cache: false,
 		ifModified: true
 	});
-
 }
-
 
 function process_tower_data (in_data) {
 	var new_tower_data = eval(in_data);
@@ -194,8 +187,6 @@ function add_tower (tower1) {
 
 
 }
-
-
 
 
 </script>
