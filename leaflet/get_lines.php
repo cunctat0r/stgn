@@ -27,7 +27,7 @@ if (!$result) {
     exit;
 }
 
-$sql = "SELECT lineName, AsText(linePoints) FROM power_lines";
+$sql = "SELECT lineName, AsText(Envelope(linePoints)) FROM power_lines";
 $result = mysqli_query($db, $sql);
 if (!$result) {
 	echo "Error in query ";
@@ -47,7 +47,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 mysqli_free_result($result);
 mysqli_close($db);
 
-print_r ($rows);
+print json_encode($rows);
 
 
 
