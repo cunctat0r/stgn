@@ -27,7 +27,7 @@ if (!$result) {
     exit;
 }
 
-$sql = "SELECT * FROM `monitoringdata`.`post_parameters` WHERE baseNet='Ростов-на-Дону'";
+$sql = "SELECT * FROM `monitoringdata`.`post_parameters`";
 $result = mysqli_query($db, $sql);
 if (!$result) {
 	echo "Error in query ";
