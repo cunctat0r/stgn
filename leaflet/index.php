@@ -34,14 +34,33 @@ map_layer.addTo(map);
 
 //Define an array of Latlng objects (points along the line)
 var polylinePoints = [
-    new L.LatLng(53.23, 50.64),
-    new L.LatLng(53.07, 51.29),
-    new L.LatLng(52.79, 52.23),
+    new L.LatLng(53.23358, 50.67567),
+    new L.LatLng(53.23754, 50.72426),
+    new L.LatLng(53.20300, 50.82734),
+    new L.LatLng(53.23348, 50.83463),
+    new L.LatLng(53.20218, 50.82957),
+    new L.LatLng(53.15810, 50.95729),
+    new L.LatLng(53.15254, 50.03805),
+    new L.LatLng(53.07547, 51.29117),
+    new L.LatLng(53.03595, 51.32816),
+    new L.LatLng(52.92800, 51.95224),
+    new L.LatLng(52.89156, 51.92279),
+    new L.LatLng(52.86703, 52.00339),
+    new L.LatLng(52.86051, 52.00948),
+    new L.LatLng(52.83568, 52.08467),
+    new L.LatLng(52.82095, 52.08004),
+    new L.LatLng(52.78378, 52.11935),
+    new L.LatLng(52.78707, 52.16063),
+    new L.LatLng(52.74360, 52.20226),
+    new L.LatLng(52.74386, 52.20578),
+    new L.LatLng(52.76370, 52.23659),
+    new L.LatLng(52.76692, 52.23736),
+    new L.LatLng(52.77139, 52.25393),
 ];
 
 var polylineOptions = {
    color: 'blue',
-   weight: 6,
+   weight: 3,
    opacity: 0.9
  };
 
