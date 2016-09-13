@@ -58,7 +58,7 @@ var polylinePoints = [
 ];
 
 var polylineOptions = {
-   color: 'blue',
+   color: '#0099ff',
    weight: 3,
    opacity: 0.9
  };
