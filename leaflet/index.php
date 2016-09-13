@@ -27,10 +27,11 @@ var map_layer = new L.TileLayer('../osm_tiles/{z}/{x}/{y}.png', {
     maxZoom: 18
 });
 
-var middleMap = new L.LatLng(53.00, 51.3); // geographical point (longitude and latitude)
+var middleMap = new L.LatLng(53.01889, 51.41167); // geographical point (longitude and latitude)
 //map.setView(middleMap, 9).addLayer(map_layer);
-map.setView(middleMap, 9);
+map.setView(middleMap, 10);
 map_layer.addTo(map);
+L.control.mousePosition().addTo(map);
 
 //Define an array of Latlng objects (points along the line)
 var polylinePoints = [
@@ -40,8 +41,6 @@ var polylinePoints = [
     new L.LatLng(53.23348, 50.83463),
     new L.LatLng(53.20218, 50.82957),
     new L.LatLng(53.15810, 50.95729),
-    //new L.LatLng(53.15254, 50.03805),
-    //new L.LatLng(53.15256, 51.29117),
     new L.LatLng(53.15254, 51.03814),
     new L.LatLng(53.07508, 51.29117),
     new L.LatLng(53.03595, 51.32816),
