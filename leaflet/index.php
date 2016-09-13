@@ -22,14 +22,32 @@ var marker = [];
 var popup_text = [];
 var map = new L.Map('map');
 
-var map_layer = new L.TileLayer('http://192.168.1.169/osm/{z}/{x}/{y}.png', {
+var map_layer = new L.TileLayer('../osm_tiles/${z}/${x}/${y}.png', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18
 });
 
-var middleMap = new L.LatLng(48.8377, 43); // geographical point (longitude and latitude)
+var middleMap = new L.LatLng(53.00, 51.3); // geographical point (longitude and latitude)
 map.setView(middleMap, 7).addLayer(map_layer);
 
+
+// get all 6 points
+var points = [
+    [51.49346, -0.11518],
+    [51.49827, -0.06763],
+    [51.48331, -0.08154],
+    [51.52284, -0.09974],
+    [51.51932, -0.06695],
+    [51.50949, -0.1363]
+];
+
+// polyline
+var selection = [];
+var polyline = new L.Polyline([], {
+    color: 'red',
+    weight: 5,
+    smoothFactor: 1
+}).addTo(map);
 
 function get_towers () {
 	$.ajax({
