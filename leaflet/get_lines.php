@@ -27,7 +27,7 @@ if (!$result) {
     exit;
 }
 
-$sql = "SELECT lineName FROM power_lines";
+$sql = "SELECT * FROM power_lines";
 $result = mysqli_query($db, $sql);
 if (!$result) {
 	echo "Error in query ";
