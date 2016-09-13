@@ -79,9 +79,9 @@ $(document).ready(function () {
     
     //Define an array of Latlng objects (points along the line)
 var polylinePoints = [
-    new L.LatLng(50.64, 53.23),
-    new L.LatLng(51.29, 53.07),
-    new L.LatLng(52.23, 52.79),
+    new L.LatLng(53.23, 50.64),
+    new L.LatLng(53.07, 51.29),
+    new L.LatLng(52.79, 52.23),
 ];
 
 var polylineOptions = {
