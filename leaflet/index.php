@@ -41,7 +41,7 @@ var polylinePoints = [
     new L.LatLng(53.20218, 50.82957),
     new L.LatLng(53.15810, 50.95729),
     new L.LatLng(53.15254, 50.03805),
-    new L.LatLng(53.07547, 51.29117),
+    new L.LatLng(53.15256, 51.29117),
     new L.LatLng(53.03595, 51.32816),
     new L.LatLng(52.92800, 51.95224),
     new L.LatLng(52.89156, 51.92279),
