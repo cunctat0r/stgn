@@ -31,7 +31,10 @@ var middleMap = new L.LatLng(53.01889, 51.41167); // geographical point (longitu
 //map.setView(middleMap, 9).addLayer(map_layer);
 map.setView(middleMap, 10);
 map_layer.addTo(map);
-L.control.mousePosition().addTo(map);
+
+map.on('click', function(e) {
+    alert(e.latlng);
+});
 
 //Define an array of Latlng objects (points along the line)
 var polylinePoints = [
