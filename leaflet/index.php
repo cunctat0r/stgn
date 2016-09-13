@@ -8,8 +8,10 @@
 <![endif]-->
 
 <script src="./dist/leaflet.js"></script>
+<script src="./dist/leaflet.ajax.min.js"></script>
 
 <script src="./jquery/jquery-1.4.2.min.js"></script>
+
 </head>
 <body>
 
@@ -74,15 +76,8 @@ map.addLayer(polyline);
 
 */
 
-var myLines = [{
-    "type": "LineString",
-    "coordinates": [[50.67567, 53.23358], [50.72426, 53.23754], [50.78201, 53.21924]]
-}, {
-    "type": "LineString",
-    "coordinates": [[52.23659, 52.76370], [52.23736, 52.76692], [52.25393, 52.77139]]
-}];
-
-L.geoJson(myLines).addTo(map);
+var geojsonLayer = new L.GeoJSON.AJAX("data/powerlines.geojson");       
+geojsonLayer.addTo(map);
 
 function get_lines () {
 	$.ajax({
