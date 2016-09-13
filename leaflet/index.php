@@ -40,22 +40,7 @@ var points = [
     [52.23, 52.79]
 ];
 
-//Define an array of Latlng objects (points along the line)
-var polylinePoints = [
-    new L.LatLng(50.64, 53.23),
-    new L.LatLng(51.29, 53.07),
-    new L.LatLng(52.23, 52.79),
-];
 
-var polylineOptions = {
-   color: 'blue',
-   weight: 6,
-   opacity: 0.9
- };
-
-var polyline = new L.Polyline(polylinePoints, polylineOptions);
-
-map.addLayer(polyline);   
 
 function get_towers () {
 	$.ajax({
@@ -91,6 +76,23 @@ function process_data (in_data) {
 
 $(document).ready(function () {
 	get_towers();
+    
+    //Define an array of Latlng objects (points along the line)
+var polylinePoints = [
+    new L.LatLng(50.64, 53.23),
+    new L.LatLng(51.29, 53.07),
+    new L.LatLng(52.23, 52.79),
+];
+
+var polylineOptions = {
+   color: 'blue',
+   weight: 6,
+   opacity: 0.9
+ };
+
+var polyline = new L.Polyline(polylinePoints, polylineOptions);
+
+map.addLayer(polyline);   
 });
 
 function isFrost(tower, phase) {
