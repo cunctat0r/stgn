@@ -32,6 +32,7 @@ map.setView(middleMap, 10);
 map_layer.addTo(map);
 
 //Define an array of Latlng objects (points along the line)
+/*
 var polylinePoints = [
     new L.LatLng(53.23358, 50.67567),
     new L.LatLng(53.23754, 50.72426),
@@ -70,6 +71,26 @@ var polylineOptions = {
 var polyline = new L.Polyline(polylinePoints, polylineOptions);
 
 map.addLayer(polyline);   
+
+*/
+
+var myLines = [{
+    "type": "LineString",
+    "coordinates": [[53.23358, 50.67567], [53.23754, 50.72426], [53.21924, 50.78201]]
+}, {
+    "type": "LineString",
+    "coordinates": [[52.76370, 52.23659], [52.76692, 52.23736], [52.77139, 52.25393]]
+}];
+
+var myStyle = {
+    "color": "#ff7800",
+    "weight": 5,
+    "opacity": 0.65
+};
+
+L.geoJson(myLines, {
+    style: myStyle
+}).addTo(map);
 
 function get_lines () {
 	$.ajax({
