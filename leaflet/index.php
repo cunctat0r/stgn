@@ -71,6 +71,18 @@ var polyline = new L.Polyline(polylinePoints, polylineOptions);
 
 map.addLayer(polyline);   
 
+function get_lines () {
+	$.ajax({
+		url: 'get_lines.php',
+		dataType: 'json',
+		success: function (hash_table) {
+			//process_data(hash_table);
+		},
+		cache: false,
+		ifModified: true
+	});
+}
+
 function get_towers () {
 	$.ajax({
 		url: 'get_towers.php',
@@ -104,6 +116,7 @@ function process_data (in_data) {
 
 
 $(document).ready(function () {
+    get_lines();
 	get_towers();      
 });
 

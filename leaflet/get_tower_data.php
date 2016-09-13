@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "LazyDog");
+$db = mysqli_connect("localhost", "frost", "frost");
 // This establishes a link to MySQL
 if (!mysqli_select_db($db, "monitoringdata")) {
 	echo "Unable to select db: ";
