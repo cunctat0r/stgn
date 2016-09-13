@@ -76,21 +76,13 @@ map.addLayer(polyline);
 
 var myLines = [{
     "type": "LineString",
-    "coordinates": [[53.23358, 50.67567], [53.23754, 50.72426], [53.21924, 50.78201]]
+    "coordinates": [[50.67567, 53.23358], [50.72426, 53.23754], [50.78201, 53.21924]]
 }, {
     "type": "LineString",
-    "coordinates": [[52.76370, 52.23659], [52.76692, 52.23736], [52.77139, 52.25393]]
+    "coordinates": [[52.23659, 52.76370], [52.23736, 52.76692], [52.25393, 52.77139]]
 }];
 
-var myStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-};
-
-L.geoJson(myLines, {
-    style: myStyle
-}).addTo(map);
+L.geoJson(myLines).addTo(map);
 
 function get_lines () {
 	$.ajax({
